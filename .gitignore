@@ -1,0 +1,15 @@
+/.history
+/.DS_Store
+/node_modules
+/dist
+
+/.vscode
+
+.eslintcache
+.env
+/PDF
+/HTML
+.idea
+xls-table-processing.iml
+/**/.~lock*
+*.cache

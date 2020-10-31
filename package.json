@@ -1,0 +1,52 @@
+{
+  "name": "myunit-month-work-time",
+  "version": "0.1.0",
+  "description": "powercode.myunit.io total working hours for the entered user credentials and month",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "start": "node src/index.js",
+    "lint": "cross-env NODE_ENV=development eslint --cache --format=pretty .",
+    "package:mac": "rm -rf dist/macos && pkg src/index.js --output dist/macos/myunit-month-work-time --targets macos && rm -rf dist/myunit-month-work-time-macos.zip && zip -r dist/myunit-month-work-time-macos.zip dist/macos",
+    "package:linux": "rm -rf dist/linux && pkg src/index.js --output dist/linux/myunit-month-work-time --targets linux && rm -rf dist/myunit-month-work-time-linux.zip && cp ./input.xlsx dist/linux && zip -r dist/myunit-month-work-time-linux.zip dist/linux",
+    "package:win": "(if exist \"dist/win\" rmdir \"dist/win\" /s /q) && pkg src/index.js --output dist/win/myunit-month-work-time --targets win"
+  },
+  "author": {
+    "name": "Vladimir Scherbina",
+    "email": "vns.scherbina@gmail.com",
+    "url": "https://github.com/sgdreamer7"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^5.2.1",
+    "download-chromium": "^2.2.1",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "pkg": "^4.4.8",
+    "puppeteer": "^3.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-formatter-pretty": "^2.0.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-compat": "^2.6.3",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.0.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-testcafe": "^0.2.1",
+    "husky": "^1.1.4",
+    "lint-staged": "^8.1.0",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.15.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  }
+}
